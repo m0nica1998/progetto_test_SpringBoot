@@ -39,8 +39,19 @@ public class Book {
 		   
 		    
 		)
+	
+	
 	private String isbn;
 	
+public Book() {
+		
+	}
+	public Book(String titolo, String autore, String isbn) {
+		 setTitolo(titolo);
+		 setAutore(autore);
+		 setIsbn(isbn);
+		
+	}
 	//getter e setter
 	public int getId() {
 		return id;
