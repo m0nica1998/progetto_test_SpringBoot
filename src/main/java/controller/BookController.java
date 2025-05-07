@@ -98,6 +98,7 @@ public class BookController {
 		return "redirect:/";
 	}
 	
+	//metodo per eliminare un elemento
 	@PostMapping("delete/{id}")
 	public String delete(@PathVariable("id")int id) {
 		repository.deleteById(id);
