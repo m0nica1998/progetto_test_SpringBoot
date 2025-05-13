@@ -1,10 +1,15 @@
 package entita;
 
+import java.util.List;
+
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.JoinTable;
+import jakarta.persistence.ManyToMany;
 import jakarta.persistence.Table;
 
 
@@ -42,6 +47,15 @@ public class Book {
 	
 	
 	private String isbn;
+	@ManyToMany()
+	@JoinTable(
+			name="book_categoria",
+			joinColumns = @JoinColumn(name="book_id"),
+			inverseJoinColumns=@JoinColumn(name="id_cat")
+			)
+	private List <Categoria> categorie;
+	
+	
 	
 public Book() {
 		
@@ -50,6 +64,13 @@ public Book() {
 		 setTitolo(titolo);
 		 setAutore(autore);
 		 setIsbn(isbn);
+		
+	}
+	
+	public void addCategorie(Categoria cat) {
+		if(!getCategorie().contains(cat)) {
+			getCategorie().add(cat);
+		}
 		
 	}
 	//getter e setter
@@ -76,6 +97,12 @@ public Book() {
 	}
 	public void setIsbn(String isbn) {
 		this.isbn = isbn;
+	}
+	public List <Categoria> getCategorie() {
+		return categorie;
+	}
+	public void setCategorie(List <Categoria> categorie) {
+		this.categorie = categorie;
 	}
 	
 

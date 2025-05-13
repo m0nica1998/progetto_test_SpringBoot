@@ -24,6 +24,11 @@ public class Prestito {
 		@JoinColumn(name="book_id", nullable = false)
 		private Book book;
 		
+		//costruttore
+		public Prestito() {
+			
+		}
+		
 		//getter e setter
 		public Book getBook() {
 			return book;
@@ -37,5 +42,7 @@ public class Prestito {
 		public void setId(int id) {
 			this.id = id;
 		}
+		
+		
 		
 }
